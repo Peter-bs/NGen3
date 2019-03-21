@@ -12,7 +12,6 @@
 #include "src\graphics\simple2drenderer.h"
 #include "src\graphics\batchrenderer2d.h"
 
-
 #include "src/graphics/static_sprite.h"
 #include "src/graphics/sprite.h"
 #include "src\utils\timer.h"
