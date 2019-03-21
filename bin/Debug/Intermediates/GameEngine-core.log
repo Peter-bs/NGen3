@@ -1,0 +1,4 @@
+﻿  main.cpp
+c:\users\blaac\documents\visual studio 2017\projects\gameengine\gameengine-core\main.cpp(29): warning C4305: 'argument': truncation from 'double' to 'const float'
+c:\users\blaac\documents\visual studio 2017\projects\gameengine\gameengine-core\main.cpp(30): warning C4305: 'argument': truncation from 'double' to 'const float'
+  GameEngine-core.vcxproj -> C:\Users\blaac\documents\visual studio 2017\Projects\GameEngine\bin\Debug\GameEngine-core.exe
