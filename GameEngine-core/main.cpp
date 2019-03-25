@@ -27,7 +27,7 @@ int main()
 	Window window("NGen3", 960, 540);
 	//glClearColor(1, 1, 1, 1);
 
-	mat4 ortho = mat4::orthographic(0.0f, 16.0f, 0.0f, 9.0f, -1.0f, 1.0f);
+	mat4 ortho = mat4::orthographic(0.0f, 24.0f, 0.0f, 16.0f, -1.0f, 1.0f);
 
 	Shader shader("src/shaders/basic.vert", "src/shaders/basic.frag");
 	shader.enable();
@@ -37,9 +37,9 @@ int main()
 
 	srand(time(NULL));
 
-	for (float y = 0; y < 9.0f; y+= 0.05)
+	for (float y = 0; y < 16.0f; y+= 0.05)
 	{
-		for (float x = 0; x < 16.0f; x+= 0.05)
+		for (float x = 0; x < 24.0f; x+= 0.05)
 		{
 			sprites.push_back(new 
 #if BATCH_RENDERER
@@ -47,7 +47,7 @@ int main()
 #else
 			StaticSprite
 #endif
-			(x, y, 0.04f, 0.04f, maths::vec4(rand() % 1000 / 1000.0f, 0, 1, 1)
+			(x, y, 0.04f, 0.04f, maths::vec4(0, rand() % 1000 / 1000.0f, 1, 1)
 #if !BATCH_RENDERER
 				, shader
 #endif
@@ -79,7 +79,8 @@ int main()
 		window.clear();
 		window.getMousePosition(x, y);
 		window.getWindowSize(width, height);
-		shader.setUniform2f("light_pos", vec2( (float)(x * 16.0f / width), (float)(9.0f - y * 9.0f / height)));
+		shader.setUniform2f("light_pos", vec2( (float)(x * 24.0f / width), (float)(16.0f - y * 16.0f / height)));
+		shader.setUniform1f("intensity_multiplier", rand() % 2);
 #if BATCH_RENDERER
 		renderer.begin();
 #endif
